@@ -1,3 +1,5 @@
+# 1. Create two-dimensional strong defined string array.
+
 $data = @(
     [string[]]@(
         "Mark",  
