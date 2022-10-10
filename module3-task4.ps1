@@ -1,0 +1,1 @@
+(Get-ChildItem -Directory $HOME)[0].GetType().FullName

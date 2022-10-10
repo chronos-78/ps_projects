@@ -1,0 +1,1 @@
+(Get-Item -Path $HOME).GetType().FullName
