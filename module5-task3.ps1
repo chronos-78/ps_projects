@@ -1,3 +1,5 @@
+# 3. Write a PowerShell class to reverse a string word by word.
+
 class StrMethods {    
     Reverse([string]$param){
         $words = @(-split $param)
