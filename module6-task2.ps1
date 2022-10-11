@@ -20,6 +20,3 @@ function case_fun([string]$inputString) {
 
 case_fun("the-stealth-warrior")
 case_fun("The_Stealth_Warrior")
-
-
-
