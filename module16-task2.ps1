@@ -1,0 +1,1 @@
+Get-ChildItem -File $HOME | Select-Object Name,Length | Sort-Object Length -Descending
