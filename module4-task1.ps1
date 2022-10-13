@@ -1,6 +1,6 @@
 # 1. Create two-dimensional strong defined string array.
 
-$data = @(
+$Data = @(
     [string[]]@(
         "Mark",  
         "Bill"        
@@ -15,4 +15,4 @@ $data = @(
     )
 )
 
-Write-Host $data[1][0]
+Write-Host $Data[1][0]

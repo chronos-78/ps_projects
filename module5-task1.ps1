@@ -1,9 +1,9 @@
-#1. Write a PowerShell class to implement pow(x, n) that is returns the base to the 
-# exponent power(base**exponent).
+#1. Write a PowerShell class to implement pow(x, n) that is returns the Base to the 
+# Exponent power(Base**Exponent).
 
 class Calc {
-    [double]Pow([double]$base,[double]$exp) {
-        return [System.Math]::Pow($base, $exp)
+    [double]Pow([double]$Base,[double]$Exp) {
+        return [System.Math]::Pow($Base, $Exp)
     }
 }
 

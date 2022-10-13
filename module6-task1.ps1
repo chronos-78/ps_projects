@@ -7,14 +7,14 @@ $str2 = "xxxxyyyyabklmopq"
 $letters1 = $str1.ToCharArray()
 $letters2 = $str2.ToCharArray()
 
-$sorted_set = [System.Collections.Generic.SortedSet[char]]::new()
+$sortedSet = [System.Collections.Generic.SortedSet[char]]::new()
 
 foreach($char in $letters1){
-    $null = $sorted_set.Add($char)
+    $null = $sortedSet.Add($char)
 }
 
 foreach($char in $letters2){
-    $null = $sorted_set.Add($char)
+    $null = $sortedSet.Add($char)
 }
 
--join $sorted_set
+-join $sortedSet

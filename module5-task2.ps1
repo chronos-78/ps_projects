@@ -4,8 +4,8 @@
 class StrCase {
     [string]$str;
 
-    SetString([string]$param) {
-        $this.str = $param;
+    SetString([string]$Param) {
+        $this.str = $Param;
     }
 
     PrintString(){

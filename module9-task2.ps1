@@ -2,10 +2,10 @@
 # Use any article from Wikipedia as given text. Use pipelines as match as possible.
 
 $result = @{}
-$o_result = [ordered]@{}
+$oResult = [ordered]@{}
 
 (Get-Content $args[0]) -split "[\s.,\n\(\)]" | ForEach-Object {$result[$_]++}
 $result.Remove("")   
-$result.GetEnumerator() | Sort-Object Value -Descending | Select-Object -First 10 | ForEach-Object {$o_result[$_.Key] = $_.Value}
+$result.GetEnumerator() | Sort-Object Value -Descending | Select-Object -First 10 | ForEach-Object {$oResult[$_.Key] = $_.Value}
 
-$o_result
+$oResult
