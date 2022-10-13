@@ -8,19 +8,9 @@ $JoinedObjects = Join-Object -Left $Processes -Right $Services -LeftJoinProperty
 $ResultObjects = $JoinedObjects | Select-Object ProcessId, ProcessName, Name, DisplayName, CPU, StartMode, State, Status
 $ServiceTable = @{}
 $ResultObjects | ForEach-Object {
-    $ServiceTable[$_.Name] = @{
-            ProcessId = $_.ProcessId; 
-            ProcessName = $_.ProcessName;
-            DisplayName = $_.DisplayName;
-            CPU = $_.CPU;
-            StartMode = $_.StartMode;
-            State  = $_.State;
-            Status = $_.Status
-        }
+    $ht = @{}
+    $_.psobject.properties | ForEach-Object { $ht[$_.Name] = $_.Value }
+    $ServiceTable[$_.Name] = $ht
     $_.Name
     $ServiceTable[$_.Name] | Format-Table   
 }
-    
-
-
-
