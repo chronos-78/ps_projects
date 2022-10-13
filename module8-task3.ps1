@@ -1,3 +1,6 @@
+# 3. Write a script to calculate a dog's age in human years: for the first two years, a dog year is equal to 10.5 human years. 
+# After that, each dog year equals 4 human years.
+
 function DogAge() {
     param ($n)
     $numbers = [System.Collections.ArrayList]::new()
