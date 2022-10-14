@@ -4,7 +4,7 @@
 $result = @{}
 $oResult = [ordered]@{}
 
-(Get-Content $args[0]) -split "[\s.,\n\(\)]" | ForEach-Object {$result[$_]++}
+(Get-Content $args[0]) -split "[^a-zA-Z]" | ForEach-Object {$result[$_]++}
 $result.Remove("")   
 $result.GetEnumerator() | Sort-Object Value -Descending | Select-Object -First 10 | ForEach-Object {$oResult[$_.Key] = $_.Value}
 

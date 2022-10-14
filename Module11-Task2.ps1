@@ -8,7 +8,7 @@
     end {
         $LETTERS = "abcdefghijklmnopqrstuvwxyz".ToCharArray()
         $set = [System.Collections.Generic.HashSet[string]]::new()
-        (Get-Content $In) -split "[\s.,\n\(\)\[\]\d\""]" | ForEach-Object {
+        (Get-Content $In) -split "[^a-zA-Z]" | ForEach-Object {
             if ($_.Length -gt 0) { 
                 $null = $set.Add($_) 
             }
