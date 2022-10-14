@@ -2,8 +2,14 @@
 # Make output in console for each sort steps and could be controlled by 
 # Verbose parameter (user can choose if he would like to see output).
 
-Function Module10-Task2 {    
-    Param ([switch]$Verbose)  
+[CmdletBinding()]
+    param ()
+
+    begin{
+        $verbose = ($PSBoundParameters.Verbose -eq $true)? $true : $false 
+    }
+
+    process{      
     $oldVerbose = $VerbosePreference
     $VerbosePreference = "continue"
 
@@ -13,7 +19,7 @@ Function Module10-Task2 {
     foreach ($i in 0..($len-2)){
         foreach ($j in ($i+1)..($len-1)){
             if ($array[$i] -gt $array[$j]) {
-                if ($Verbose) {
+                if ($verbose) {
                     $verboseStr = "array[{0}]({1}) is greater then array[{2}]({3}), swapping {1} and {3}" -f 
                         $i, $array[$i], $j, $array[$j]
                     Write-Verbose $verboseStr
@@ -24,7 +30,7 @@ Function Module10-Task2 {
                 $array[$j] = $tmp
             }
             else {
-                if($Verbose) {
+                if($verbose) {
                     $verboseStr = "array[{0}]({1}) is less or equal to array[{2}]({3}), next iteration..." -f 
                         $i, $array[$i], $j, $array[$j]
                     Write-Verbose $verboseStr
