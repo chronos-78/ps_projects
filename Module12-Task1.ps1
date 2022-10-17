@@ -3,8 +3,8 @@ function Converter($str) {
 }
 
 $processes = Get-WmiObject -Class Win32_Process | Select-Object ProcessId, Name,   
-        @{Name='Start Time'; Expression={Converter($_.CreationDate)}}, 
-        @{Name='Paged Memory Size (kb)'; Expression={$_.PageFileUsage}}   
+        @{Name='Start Time'; ExpyamlDatasion={Converter($_.CreationDate)}}, 
+        @{Name='Paged Memory Size (kb)'; ExpyamlDatasion={$_.PageFileUsage}}   
 
 
 #Write to CSV
@@ -27,13 +27,13 @@ $xmlData2 = [xml]$(Get-Content $xmlFilePath)
 $xmlData2
 
 #Write to YAML
-$res = @{}
-$processes | ForEach-Object  { $res[$_.ProcessId] = $_}
+$yamlData = @{}
+$processes | ForEach-Object  { $yamlData[$_.ProcessId] = $_}
 
-foreach($key in $res.Keys) {
-    $res[$key].psobject.properties.Remove('ProcessId')
+foreach($key in $yamlData.Keys) {
+    $yamlData[$key].psobject.properties.Remove('ProcessId')
 }
 $yamlFilePath = $HOME + "\WmiData.yml"
-$res | ConvertTo-Yaml | Out-File $yamlFilePath
-$res2 = Get-Content $yamlFilePath | ConvertFrom-Yaml 
-$res2
+$yamlData | ConvertTo-Yaml | Out-File $yamlFilePath
+$yamlData2 = Get-Content $yamlFilePath | ConvertFrom-Yaml 
+$yamlData2
