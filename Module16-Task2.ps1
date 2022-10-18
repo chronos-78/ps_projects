@@ -1,1 +1,12 @@
-Get-ChildItem -File $HOME | Select-Object Name,Length | Sort-Object Length -Descending
+# 2. Write an advanced function to delete file from a specific folder if file size greater then specified size in Kb.
+
+[CmdletBinding()]
+    param (
+        [string]$Folder,        
+        [int]$Size
+
+    )
+
+    end{
+        Get-ChildItem -File $Folder | Where-Object {$_.Length -gt $Size * 1024} | Remove-Item       
+    }
