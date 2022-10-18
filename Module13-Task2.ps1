@@ -28,12 +28,10 @@ $logonSessions = Get-WmiObject Win32_LogonSession | Where-Object {
 $userAccounts = Get-WmiObject Win32_Account
 
 foreach ($session in $logonSessions) {
-    $session | Format-Table
-    $logonId = $session.LogonId    
-    $username = $loggedUsers | Where-Object {$_.LogonID -eq $logonId}  
-    $username | Format-Table
-    $user = $userName.LoggedUser
-    $userAccount = $userAccounts | Where-Object {$_.Name -eq $user}
+    $session | Format-Table    
+    $users = $loggedUsers | Where-Object {$_.LogonID -eq $session.LogonId}  
+    $users | Format-Table    
+    $userAccount = $userAccounts | Where-Object {$_.Name -eq $users.LoggedUser}
     $userAccount | Format-Table
     Write-Host "---------------------------------------------------------------------------------------------------"
 }
