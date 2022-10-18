@@ -1,3 +1,7 @@
+# 1. Write a script to get list of process (ex. All chrome process) and put 
+# Name, Id, StartTime, PagedMemorySize in CSV/XML/JSON/YAML files where possible.
+# 2. Write a script to create hash-tables based on data that stored in files from task 1.
+
 function Converter($str) {
     return [System.Management.ManagementDateTimeConverter]::ToDateTime($str).ToString("HH:mm:ss")
 }
