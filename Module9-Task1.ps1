@@ -1,7 +1,7 @@
 # 1. Write a script that it makes association with running services and process in Windows. 
 # Put result in hash table. Use pipelines as match as possible.
 
-Install-Module -Name Join-Object
+Install-Module -Name Join-Object -Confirm
 $services = Get-WmiObject -Class Win32_Service | Where-Object {$_.State -eq "Running"} 
 $processes = Get-Process | Select-Object 'ProcessName', @{
                                                             Name='ProcessId'

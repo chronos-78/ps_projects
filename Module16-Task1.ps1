@@ -1,9 +1,4 @@
-# 1. Write an advanced function to show the size of files in specific folder and sort all of them by size.
+# 1. Call an advanced function to show the size of files in specific folder and sort all of them by size.
 
-[CmdletBinding()]
-    param (
-        [string]$Directory
-    )
-    end{
-        Get-ChildItem -File $Directory | Select-Object Name,Length | Sort-Object Length -Descending
-    }
+. .\Get-SortedFileSize.ps1
+Get-SortedFileSize -Directory $HOME

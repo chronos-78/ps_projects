@@ -6,7 +6,7 @@
         [string]$In        
     )
     end {
-        $LETTERS = "abcdefghijklmnopqrstuvwxyz".ToCharArray()
+        $LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray()
         $set = [System.Collections.Generic.HashSet[string]]::new()
         (Get-Content $In) -split "[^a-zA-Z]" | ForEach-Object {
             if ($_.Length -gt 0) { 
@@ -15,9 +15,9 @@
         }
         $res = $set | Sort-Object 
         foreach($letter in $LETTERS) {
-            $file = $letter + ".txt"
+            $file = $HOME + "\" + $letter + ".txt"
             foreach($word in $res) {
-                if ($word.Substring(0,1).ToLower() -eq $letter) {                    
+                if ($word.Substring(0,1).ToUpper() -eq $letter) {                    
                     Add-Content -Path $file -Value $word
                 } 
             }

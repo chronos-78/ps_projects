@@ -13,19 +13,24 @@ function ConvertFrom-Xml($XML) {
 #Read from CSV
 $csvFilePath = $HOME + "\WmiData.csv"
 $csvData = Get-Content $csvFilePath | ConvertFrom-Csv
-$csvData
+Write-Host "CSV Data:"
+$csvData | Format-Table
 
 #Read from  JSON 
 $jsonFilePath = $HOME + "\WmiData.json"
 $jsonData = Get-Content $jsonFilePath | ConvertFrom-Json 
-$jsonData
+Write-Host "JSON Data:"
+$jsonData | Format-Table
 
 #Read from XML
 $xmlFilePath = $HOME + "\WmiData.xml"
 $xmlData = [xml]$(Get-Content $xmlFilePath)
 $xmlData2 = ConvertFrom-Xml($xmlData)
-$xmlData2
+Write-Host "XML Data:"
+$xmlData2 | Format-Table
 
 #Read from YAML
+$yamlFilePath = $HOME + "\WmiData.yml"
 $yamlData2 = Get-Content $yamlFilePath | ConvertFrom-Yaml 
-$yamlData2
+Write-Host "YAML Data:"
+$yamlData2 | Format-Table

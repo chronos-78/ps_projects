@@ -1,4 +1,4 @@
-# 3. Write a script that matches an IP address.
+.# 3. Write a script that matches an IP address.
 # https://regex101.com/r/KLr1gj/1
 
 $string = $args[0]

@@ -20,7 +20,7 @@
         foreach ($j in ($i+1)..($len-1)){
             if ($array[$i] -gt $array[$j]) {
                 if ($verbose) {
-                    $verboseStr = "array[{0}]({1}) is greater then array[{2}]({3}), swapping {1} and {3}" -f 
+                    $verboseStr = "array[{0}]:{1} is greater then array[{2}]:{3}, swapping {1} and {3}" -f 
                         $i, $array[$i], $j, $array[$j]
                     Write-Verbose $verboseStr
                 }
@@ -31,7 +31,7 @@
             }
             else {
                 if($verbose) {
-                    $verboseStr = "array[{0}]({1}) is less or equal to array[{2}]({3}), next iteration..." -f 
+                    $verboseStr = "array[{0}]:{1} is less or equal to array[{2}]:{3}, next iteration..." -f 
                         $i, $array[$i], $j, $array[$j]
                     Write-Verbose $verboseStr
                 }
